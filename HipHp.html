@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hip Hop Universe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        header {
+            background-color: black;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        header h1 {
+            color: #ffd700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .nav-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button.active {
+            background-color: #ffd700;
+            color: black;
+        }
+        .content-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .artist-card, .album-card {
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .artist-card:hover, .album-card:hover {
+            transform: scale(1.05);
+        }
+        .artist-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color: black;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hip Hop Universe</h1>
+        <p>Explorando los sonidos y la cultura del hip hop</p>
+    </header>
+
+    <nav class="container">
+        <div class="nav-menu">
+            <button class="nav-button active" onclick="showSection('artistas')">Artistas</button>
+            <button class="nav-button" onclick="showSection('albumes')">Álbumes</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="artistas" class="content-section">
+            <div class="artist-card">
+                <img src="https://www.hola.com/horizon/square/a9fe4296cead-gettyimages-2198073045.jpg" alt="Kendrick Lamar" class="artist-image">
+                <h2>Kendrick Lamar</h2>
+                <p>Álbum: DAMN.</p>
+            </div>
+            <div class="artist-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhR5gNTTIzfF6NDmAmrJ1dJQX9bOrypX2Bfw&s" alt="J. Cole" class="artist-image">
+                <h2>J. Cole</h2>
+                <p>Álbum: KOD</p>
+            </div>
+            <div class="artist-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSSPoI6nBUJifSu9wbq_DfmEmvaV5rmPxXTw&s" alt="Tyler, the Creator" class="artist-image">
+                <h2>Tyler, the Creator</h2>
+                <p>Álbum: IGOR</p>
+            </div>
+        </section>
+
+        <section id="albumes" class="content-section" style="display: none;">
+            <div class="album-card">
+                <h2>To Pimp a Butterfly</h2>
+                <p>Kendrick Lamar</p>
+                <p>Año: 2015</p>
+            </div>
+            <div class="album-card">
+                <h2>4 Your Eyez Only</h2>
+                <p>J. Cole</p>
+                <p>Año: 2016</p>
+            </div>
+            <div class="album-card">
+                <h2>Die Lit</h2>
+                <p>Playboi Carti</p>
+                <p>Año: 2018</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Hip Hop Universe - Todos los derechos reservados</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = ['artistas', 'albumes'];
+            const buttons = document.querySelectorAll('.nav-button');
+
+            sections.forEach(section => {
+                const sectionElement = document.getElementById(section);
+                const button = document.querySelector(`button[onclick="showSection('${section}')"]`);
+
+                if (section === sectionId) {
+                    sectionElement.style.display = 'grid';
+                    button.classList.add('active');
+                } else {
+                    sectionElement.style.display = 'none';
+                    button.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
